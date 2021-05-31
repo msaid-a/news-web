@@ -9,6 +9,7 @@ const Main: React.FC = () => {
 
     const getData = async () => {
         await newsServices.getNews()
+        await newsServices.getHeadline()
     }
 
     useEffect(() => {

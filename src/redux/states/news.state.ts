@@ -1,9 +1,9 @@
 import {articles} from '../../model'
 
 export interface newsReduxState {
-    news : articles[]
+    news : articles[],
 }
 
 export const newsDefaultState: newsReduxState = {
-    news : []
+    news : [],
 }
