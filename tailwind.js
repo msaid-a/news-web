@@ -10,7 +10,8 @@ module.exports = {
       md: '768px',
       lg: '1024px',
       xl: '1280px',
-      '2xl': '1536px',
+      '1xl': '1368px',
+      '2xl': '1920px',
     },
     colors: {
       transparent: 'transparent',
@@ -174,7 +175,11 @@ module.exports = {
       150: '1.5',
       200: '2',
     },
-    container: {},
+    container: {
+      maxWidth: {
+        '2xl': '1920px'
+      }
+    },
     cursor: {
       auto: 'auto',
       default: 'default',

@@ -1,5 +1,7 @@
 import logo from './logo.svg';
 import './static/styles/tailwind.css';
+import "slick-carousel/slick/slick.css"; 
+import "slick-carousel/slick/slick-theme.css";
 import Main from './view/Main'
 import Search from './view/Search'
 import {

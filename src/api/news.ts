@@ -15,7 +15,8 @@ interface topHeadline {
 
 export interface NewsApi {
     getNewsData: () =>  Promise<newsResponse>,
-    getTopHeadlines: () => Promise<topHeadline>,
+    getTopHeadlines: (category : string) => Promise<topHeadline>,
+
 }
 
 const keys = 'dacd081181ce4a34ac2b8a461b7ea8d0'
@@ -24,7 +25,9 @@ const value = 'bitcoin'
 
 const newsApi : NewsApi = {
     getNewsData :() => apiBase.get(`${url}?q=${value}&apiKey=${keys}`),
-    getTopHeadlines: () => apiBase.get(`/top-headlines?country=id&apiKey=${keys}`),
+    getTopHeadlines: (category: string) => apiBase.get(`/top-headlines?category=${category}&country=id&apiKey=${keys}`),
 }
+
+
 
 export default newsApi

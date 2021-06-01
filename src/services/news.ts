@@ -14,10 +14,19 @@ class NewsServices {
       }
     }
 
-    public async getHeadline() {
+    public async getHeadline(category: string) {
       try {
-        const {articles} = await api.newsApi.getTopHeadlines()
+        const {articles} = await api.newsApi.getTopHeadlines(category)
         store.dispatch(setHeadline(articles))
+      } catch (error) {
+        console.log(error)
+      }
+    }
+
+    public async getHeadlineNoRedux(category: string) {
+      try {
+        const res = await api.newsNoRedux.getTopHeadlinesNoRedux(category)
+        return res
       } catch (error) {
         console.log(error)
       }

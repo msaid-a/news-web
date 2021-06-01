@@ -1,11 +1,14 @@
 import newsApi, { NewsApi } from "./news";
+import newsNoRedux, {iNoRedux} from './noRedux'
 
 interface IApi {
-    newsApi: NewsApi;
+    newsApi: NewsApi
+    newsNoRedux: iNoRedux
 }
 
 const api: IApi = {
-    newsApi
+    newsApi,
+    newsNoRedux,
 }
 
 export default api;

@@ -1,5 +1,7 @@
 import React, { CSSProperties, ReactNode } from 'react'
 import classNames from 'classnames'
+import {Header} from '../index'
+import './style.css'
 
 interface props {
     loading?: string,
@@ -11,11 +13,14 @@ interface props {
 
 const Container:React.FC<props> = (props) => {
 
-const containerClass = classNames('container', props.className)
+const containerClass = classNames('container custom-header', props.className)
 
     return (
-        <div style={props.style} className={containerClass}>
-            {props.children}
+        <div>
+            <Header />
+            <div style={props.style} className={containerClass}>
+                {props.children}
+            </div>
         </div>
     )
 }
