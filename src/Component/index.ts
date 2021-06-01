@@ -3,10 +3,12 @@ import Break from './Break'
 import Text from './Text'
 import Card from './Card'
 import Header from './Header'
+import Footer from './Footer'
 export {
     Container,
     Break,
     Text,
     Card,
-    Header
+    Header,
+    Footer
 }

@@ -56,7 +56,7 @@ const Main: React.FC = () => {
     
     console.log(health, 'zxczxc')
 
-    return news.headline.headline.length === 0 ? (<p>Loading...</p>) : (
+    return news.headline.headline.length !== 0 ? (<p>Loading...</p>) : (
         <div>
             <Container className="px-12" >
                 <Text.Heading h={5}> Top Headline About Businiess </Text.Heading>
@@ -78,7 +78,7 @@ const Main: React.FC = () => {
                 <Break height={100}></Break>
                 <Text.Heading h={3}> Top Headline About Health </Text.Heading>
 
-                {/* <Carousel 
+                <Carousel 
                     responsive={responsive}
                     swipeable={false}
                     draggable={false}
@@ -93,7 +93,7 @@ const Main: React.FC = () => {
                         <Text.Paragraph className="my-1">{val.title.length > 80 ? val.title.substring(0,80) + '...' : val.title}</Text.Paragraph>
                         </Card>
                         ))}
-                </Carousel> */}
+                </Carousel>
             
             </Container>
         </div>
