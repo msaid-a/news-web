@@ -30,13 +30,7 @@ function App() {
             render={() => <AsyncPage page={route.page} /> }
           />
         ) )}
-        <Route component={<p>Not Found</p>} />
-        {/* <Route path="/" exact>
-          <Main />
-        </Route>
-        <Route path="/search">
-          <Search />
-        </Route> */}
+        <Route component={() => <p>Not Found</p>} />
       </Switch>
     </Router>
   );
