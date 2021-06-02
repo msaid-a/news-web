@@ -4,11 +4,17 @@ import Text from './Text'
 import Card from './Card'
 import Header from './Header'
 import Footer from './Footer'
+import AsyncPage from './AsyncPage'
+import Loading from './Loading'
+import ErrorBoundary    from './ErrorBoundary'
 export {
     Container,
     Break,
     Text,
     Card,
     Header,
-    Footer
+    Footer,
+    AsyncPage,
+    Loading,
+    ErrorBoundary
 }

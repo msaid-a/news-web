@@ -2,7 +2,7 @@ import React, {useEffect, useState} from 'react'
 import {newsServices} from '../services'
 import {AppReduxState} from '../redux'
 import { useSelector } from 'react-redux';
-import {Container, Break, Text, Card, Header} from '../Component'
+import {Container, Break, Text, Card, Header, Loading} from '../Component'
 import Carousel from "react-multi-carousel";
 import {articles} from '../model/index'
 import "react-multi-carousel/lib/styles.css";
@@ -41,13 +41,16 @@ const responsive = {
 const Main: React.FC = () => {
     const news = useSelector((state: AppReduxState) => state)
     const [health, setHealth] = useState<articles[]>([])
+    const [loading, setLoading] = useState<boolean>(false)
 
     const getData = async () => {
+        setLoading(true)
         await newsServices.getNews()
         await newsServices.getHeadline('business')
-        // Promise.resolve(newsServices.getHeadlineNoRedux('health')).then(value => {
-        //     setHealth(value.articles)
-        // })
+        setLoading(false)
+        Promise.resolve(newsServices.getHeadlineNoRedux('health')).then(value => {
+            setHealth(value.articles)
+        })
     }
 
     useEffect(() => {
@@ -56,7 +59,7 @@ const Main: React.FC = () => {
     
     console.log(health, 'zxczxc')
 
-    return news.headline.headline.length !== 0 ? (<p>Loading...</p>) : (
+    return loading ? (<Loading />) : (
         <div>
             <Container className="px-12" >
                 <Text.Heading h={5}> Top Headline About Businiess </Text.Heading>
