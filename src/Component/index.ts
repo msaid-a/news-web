@@ -7,6 +7,7 @@ import Footer from './Footer'
 import AsyncPage from './AsyncPage'
 import Loading from './Loading'
 import ErrorBoundary    from './ErrorBoundary'
+import Layout from './Layout'
 export {
     Container,
     Break,
@@ -16,5 +17,6 @@ export {
     Footer,
     AsyncPage,
     Loading,
-    ErrorBoundary
+    ErrorBoundary,
+    Layout
 }

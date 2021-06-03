@@ -1,11 +1,13 @@
-import React, {useEffect, useState} from 'react'
+import React, {HtmlHTMLAttributes, useEffect, useState} from 'react'
 import {newsServices} from '../services'
 import {AppReduxState} from '../redux'
 import { useSelector } from 'react-redux';
-import {Container, Break, Text, Card, Header, Loading} from '../Component'
+import {Container, Break, Text, Card, Layout, Loading} from '../Component'
 import Carousel from "react-multi-carousel";
 import {articles} from '../model/index'
 import "react-multi-carousel/lib/styles.css";
+import {useHistory} from 'react-router-dom'
+
 
 const responsive = {
     superLargeDesktop: {
@@ -42,25 +44,31 @@ const Main: React.FC = () => {
     const news = useSelector((state: AppReduxState) => state)
     const [health, setHealth] = useState<articles[]>([])
     const [loading, setLoading] = useState<boolean>(false)
+    const history = useHistory()
+
 
     const getData = async () => {
         setLoading(true)
-        await newsServices.getNews()
         await newsServices.getHeadline('business')
-        setLoading(false)
-        Promise.resolve(newsServices.getHeadlineNoRedux('health')).then(value => {
+        await Promise.resolve(newsServices.getHeadlineNoRedux('health')).then(value => {
             setHealth(value.articles)
         })
+        setLoading(false)
     }
 
     useEffect(() => {
         getData()
     }, [])
-    
-    console.log(health, 'zxczxc')
 
-    return loading ? (<Loading />) : (
-        <div>
+    const searchData = (e : any) => {
+        if (e.keyCode === 13) {
+            history.push(`/search?q=${e.target.value}`)
+          }
+    }
+    
+
+    return  (
+        <Layout loading={loading} elementSearch={<input type="search" onKeyUp={searchData} className="mx-2.5 block text-gray-700 text-sm font-bold mb-2 border search" placeholder="Search" />}>
             <Container className="px-12" >
                 <Text.Heading h={5}> Top Headline About Businiess </Text.Heading>
                 <Break height={20} />
@@ -99,7 +107,7 @@ const Main: React.FC = () => {
                 </Carousel>
             
             </Container>
-        </div>
+        </Layout>
     )
 }
 

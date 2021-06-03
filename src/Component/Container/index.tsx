@@ -17,11 +17,9 @@ const containerClass = classNames('container custom-header', props.className)
 
     return (
         <div>
-            <Header />
             <div style={props.style} className={containerClass}>
                 {props.children}
             </div>
-            <Footer />
         </div>
     )
 }

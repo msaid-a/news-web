@@ -5,9 +5,9 @@ import api from '../api'
 
 class NewsServices {
 
-    public async getNews() {
+    public async getNews(search: string) {
       try {
-        const {articles} = await api.newsApi.getNewsData()
+        const {articles} = await api.newsApi.getNewsData(search)
         store.dispatch(setNews(articles))
       } catch (error) {
         console.error(error)
