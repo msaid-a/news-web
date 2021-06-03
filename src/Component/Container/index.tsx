@@ -1,10 +1,10 @@
 import React, { CSSProperties, ReactNode } from 'react'
 import classNames from 'classnames'
-import {Header, Footer} from '../index'
+import {Header, Footer, Loading} from '../index'
 import './style.css'
 
 interface props {
-    loading?: string,
+    loading?: Boolean,
     children: ReactNode,
     style?: CSSProperties,
     className?: string
@@ -18,7 +18,7 @@ const containerClass = classNames('container custom-header', props.className)
     return (
         <div>
             <div style={props.style} className={containerClass}>
-                {props.children}
+                {props.loading ? <Loading/> : props.children}
             </div>
         </div>
     )

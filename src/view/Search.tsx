@@ -31,7 +31,7 @@ const Search: React.FC<props > = (props) => {
     }
 
     return  (
-        <Layout loading={loading} elementSearch={<input onKeyUp={searchData} className="mx-2.5 block text-gray-700 text-sm font-bold mb-2 border search" placeholder="Search" />}>
+        <Container loading={loading}>
             {news.news.news.length == 0 ? (<NoData />) : (
                 <Container className=" 2xl:px-16 2xl:pl-44 grid 2xl:grid-cols-4 gap-4 md:grid-cols-3 md:px-10 md:pl-32">
                 {news.news.news.map(val => (
@@ -41,7 +41,7 @@ const Search: React.FC<props > = (props) => {
                 ))}
                 </Container>
             )}
-        </Layout>
+        </Container>
     )
 }
 

@@ -3,7 +3,7 @@ import './static/styles/tailwind.css';
 import "slick-carousel/slick/slick.css"; 
 import "slick-carousel/slick/slick-theme.css";
 import {ROUTE_PATH} from './Route/index'
-import {AsyncPage} from './Component'
+import {AsyncPage, Layout} from './Component'
 import Main from './view/Main'
 import Search from './view/Search'
 import {
@@ -21,17 +21,19 @@ const ROUTES = [
 function App() {
   return (
     <Router>
-      <Switch>
-        {ROUTES.map((route, i) => (
-          <Route 
-            key={i}
-            path={route.path}
-            exact={route.exact}
-            render={() => <AsyncPage page={route.page} /> }
-          />
-        ) )}
-        <Route component={() => <p>Not Found</p>} />
-      </Switch>
+      <Layout>
+        <Switch>
+          {ROUTES.map((route, i) => (
+            <Route 
+              key={i}
+              path={route.path}
+              exact={route.exact}
+              render={() => <AsyncPage page={route.page} /> }
+            />
+          ) )}
+          <Route component={() => <p>Not Found</p>} />
+        </Switch>
+      </Layout>
     </Router>
   );
 }

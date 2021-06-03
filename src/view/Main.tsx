@@ -68,8 +68,7 @@ const Main: React.FC = () => {
     
 
     return  (
-        <Layout loading={loading} elementSearch={<input type="search" onKeyUp={searchData} className="mx-2.5 block text-gray-700 text-sm font-bold mb-2 border search" placeholder="Search" />}>
-            <Container className="px-12" >
+            <Container loading={loading} className="px-12" >
                 <Text.Heading h={5}> Top Headline About Businiess </Text.Heading>
                 <Break height={20} />
                 <Carousel 
@@ -107,7 +106,6 @@ const Main: React.FC = () => {
                 </Carousel>
             
             </Container>
-        </Layout>
     )
 }
 
