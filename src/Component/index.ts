@@ -20,5 +20,5 @@ export {
     Loading,
     ErrorBoundary,
     Layout,
-NoData
+    NoData
 }
