@@ -2,29 +2,23 @@ import {articles} from '../model/index'
 import apiBase from './base'
 
 interface newsResponse {
-    status: string,
-    totalResults: number,
+    totalArticles: number,
     articles : articles[]
 }
 
 interface topHeadline {
-    status: string,
-    totalResults: number,
+    totalArticles: number,
     articles : articles[]
 }
 
 export interface NewsApi {
     getNewsData: (search: string) =>  Promise<newsResponse>,
     getTopHeadlines: (category : string) => Promise<topHeadline>,
-
 }
 
-const keys = 'dacd081181ce4a34ac2b8a461b7ea8d0'
-const url = '/everything'
-
 const newsApi : NewsApi = {
-    getNewsData :(search) => apiBase.get(`${url}?q=${search}&apiKey=${keys}`),
-    getTopHeadlines: (category: string) => apiBase.get(`/top-headlines?category=${category}&country=id&apiKey=${keys}`),
+    getNewsData :(search) => apiBase.get(`/top-headlines?token=155969ab1fa25f257c50544bf5c177f1&langguage=en&q=${search}`),
+    getTopHeadlines: (category: string) => apiBase.get(`/top-headlines?token=155969ab1fa25f257c50544bf5c177f1&langguage=en&topic=${category}`),
 }
 
 

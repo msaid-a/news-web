@@ -45,7 +45,7 @@ const Main: React.FC = () => {
   const getData = async () => {
     setLoading(true);
     await newsServices.getHeadline("business");
-    
+    await newsServices.getBreakingNews()
     setLoading(false);
   };
 
@@ -53,6 +53,7 @@ const Main: React.FC = () => {
     setLoading(true);
     await Promise.resolve(newsServices.getHeadlineNoRedux("health")).then(
         (value) => {
+          console.log(value, 'zxczxc')
           setHealth(value.articles);
         }
       );
@@ -68,6 +69,36 @@ const Main: React.FC = () => {
 
   return (
     <Container loading={loading} className="px-12">
+      <Text.Heading h={5}> Breaking News </Text.Heading>
+      <Break height={20} />
+      <Carousel
+        responsive={responsive}
+        infinite={true}
+        autoPlaySpeed={400}
+        keyBoardControl={true}
+        transitionDuration={400}
+        containerClass="carousel-container"
+      >
+        {news.headline.breakingNews.map((val) => (
+          <Card
+            headImage={
+              val.image
+                ? val.image
+                : "https://storage.googleapis.com/stateless-www-knowkpop-com/2020/01/048f86ff-world-health.jpg"
+            }
+          >
+            <Text.Paragraph className="my-1">
+              {val.title.length > 80
+                ? val.title.substring(0, 80) + "..."
+                : val.title}
+            </Text.Paragraph>
+            <a href={val.url} target="blank" style={{ color: "#09b7e3" }}>
+              Load more...
+            </a>
+          </Card>
+        ))}
+      </Carousel>
+      <Break height={100}></Break>
       <Text.Heading h={5}> Top Headline About Businiess </Text.Heading>
       <Break height={20} />
       <Carousel
@@ -81,8 +112,8 @@ const Main: React.FC = () => {
         {news.headline.headline.map((val) => (
           <Card
             headImage={
-              val.urlToImage
-                ? val.urlToImage
+              val.image
+                ? val.image
                 : "https://storage.googleapis.com/stateless-www-knowkpop-com/2020/01/048f86ff-world-health.jpg"
             }
           >
@@ -99,7 +130,6 @@ const Main: React.FC = () => {
       </Carousel>
       <Break height={100}></Break>
       <Text.Heading h={3}> Top Headline About Health </Text.Heading>
-
       <Carousel
         responsive={responsive}
         swipeable={false}
@@ -114,8 +144,8 @@ const Main: React.FC = () => {
           health.map((val) => (
             <Card
               headImage={
-                val.urlToImage
-                  ? val.urlToImage
+                val.image
+                  ? val.image
                   : "https://storage.googleapis.com/stateless-www-knowkpop-com/2020/01/048f86ff-world-health.jpg"
               }
             >

@@ -38,8 +38,8 @@ const Search: React.FC<props> = (props) => {
           {news.news.news.map((val) => (
             <Card
               headImage={
-                val.urlToImage
-                  ? val.urlToImage
+                val.image
+                  ? val.image
                   : "https://storage.googleapis.com/stateless-www-knowkpop-com/2020/01/048f86ff-world-health.jpg"
               }
             >

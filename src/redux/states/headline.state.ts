@@ -1,9 +1,11 @@
 import {articles} from '../../model'
 
 export interface headlineReduxState {
-    headline : articles[]
+    headline : articles[],
+    breakingNews: articles[]
 }
 
 export const headlineDefaultState: headlineReduxState = {
-    headline : []
+    headline : [],
+    breakingNews: []
 }

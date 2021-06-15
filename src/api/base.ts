@@ -5,7 +5,7 @@ class ApiBase {
 
   constructor() {
     this.axios = axios
-    this.axios.defaults.baseURL = 'https://newsapi.org/v2';
+    this.axios.defaults.baseURL = 'https://gnews.io/api/v4';
     this.axios.interceptors.response.use(
       (response) => response.data,
       (error) => Promise.reject(error)

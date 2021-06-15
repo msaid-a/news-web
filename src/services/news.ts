@@ -1,5 +1,5 @@
 import {store} from '../redux'
-import {setNews} from '../redux/action/news.action'
+import {setBreakingNews, setNews} from '../redux/action/news.action'
 import {setHeadline} from '../redux/action/headline.action'
 import api from '../api'
 
@@ -26,7 +26,17 @@ class NewsServices {
     public async getHeadlineNoRedux(category: string) {
       try {
         const res = await api.newsNoRedux.getTopHeadlinesNoRedux(category)
+        console.log(res, 'asdasd')
         return res
+      } catch (error) {
+        console.log(error)
+      }
+    }
+
+    public async getBreakingNews() {
+      try {
+        const {articles} = await api.newsApi.getTopHeadlines('breakin-news')
+        store.dispatch(setBreakingNews(articles))
       } catch (error) {
         console.log(error)
       }
