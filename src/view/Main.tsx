@@ -75,8 +75,8 @@ const Main: React.FC = () => {
     setLoadingHealth(true);
     setTimeout(async () => {
       await newsServices.getHeadlineHealth();
-    }, 1000)
-    setLoadingHealth(false);
+      setLoadingHealth(false);
+    }, 3000)
   }
 
   
