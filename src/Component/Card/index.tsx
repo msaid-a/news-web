@@ -20,11 +20,7 @@ const index : React.FC<props> = (props) => {
 
     return (
         <div className={className} style={props.style} onClick={props.onClick}>
-            <img src={props.headImage} alt="Avatar" 
-            style={{width: 280, height: 280, objectFit: 'cover', borderRadius: 20}} />
-            <div className="container-card">
-                {props.children}
-            </div>
+            {props.children}
         </div>    
     )
 }

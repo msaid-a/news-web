@@ -1,6 +1,6 @@
 import {store} from '../redux'
 import {setBreakingNews, setNews} from '../redux/action/news.action'
-import {setHeadline} from '../redux/action/headline.action'
+import { setHeadlineHealth, setHeadlineSport, setHeadlineWordl} from '../redux/action/headline.action'
 import api from '../api'
 
 class NewsServices {
@@ -17,25 +17,36 @@ class NewsServices {
     public async getHeadline(category: string) {
       try {
         const {articles} = await api.newsApi.getTopHeadlines(category)
-        store.dispatch(setHeadline(articles))
+        console.log(category, 'zxczxc')
+        store.dispatch(setHeadlineWordl(articles))
+        
       } catch (error) {
         console.log(error)
       }
     }
 
-    public async getHeadlineNoRedux(category: string) {
+    public async getHeadlineSport() {
       try {
-        const res = await api.newsNoRedux.getTopHeadlinesNoRedux(category)
-        console.log(res, 'asdasd')
-        return res
+        const {articles} = await api.newsApi.getNewsData("sport")
+        store.dispatch(setHeadlineSport(articles))
       } catch (error) {
         console.log(error)
       }
     }
+
+    public async getHeadlineHealth() {
+      try {
+        const {articles} = await api.newsApi.getTopHeadlines("health")
+        store.dispatch(setHeadlineHealth(articles))
+      } catch (error) {
+        console.log(error)
+      }
+    }
+
 
     public async getBreakingNews() {
       try {
-        const {articles} = await api.newsApi.getTopHeadlines('breakin-news')
+        const {articles} = await api.newsApi.getTopHeadlines('breaking-news')
         store.dispatch(setBreakingNews(articles))
       } catch (error) {
         console.log(error)

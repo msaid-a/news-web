@@ -9,6 +9,8 @@ import Loading from './Loading'
 import ErrorBoundary    from './ErrorBoundary'
 import Layout from './Layout'
 import NoData from './NoData'
+import Flex from './Flex'
+import Image from './Image'
 export {
     Container,
     Break,
@@ -20,5 +22,7 @@ export {
     Loading,
     ErrorBoundary,
     Layout,
-    NoData
+    NoData,
+    Flex, 
+    Image
 }

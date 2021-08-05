@@ -8,6 +8,7 @@ interface props {
     children: ReactNode,
     style?: CSSProperties,
     className?: string
+    container?: true
 }
 
 
@@ -17,7 +18,7 @@ const containerClass = classNames('container custom-header', props.className)
 
     return (
         <div>
-            <div style={props.style} className={containerClass}>
+            <div style={props.style} className={props.container ? containerClass : props.className}>
                 {props.loading ? <Loading/> : props.children}
             </div>
         </div>
