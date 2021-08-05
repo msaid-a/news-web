@@ -17,7 +17,6 @@ class NewsServices {
     public async getHeadline(category: string) {
       try {
         const {articles} = await api.newsApi.getTopHeadlines(category)
-        console.log(category, 'zxczxc')
         store.dispatch(setHeadlineWordl(articles))
         
       } catch (error) {
