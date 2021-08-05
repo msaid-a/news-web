@@ -17,8 +17,8 @@ export interface NewsApi {
 }
 
 const newsApi : NewsApi = {
-    getNewsData :(search) => apiBase.get(`/top-headlines?token=c470b569ea95a80ab731da8369048d3c&lang=en&q=${search}`),
-    getTopHeadlines: (category: string) => apiBase.get(`/top-headlines?token=c470b569ea95a80ab731da8369048d3c&lang=en&topic=${category}`),
+    getNewsData :(search) => apiBase.get(`/search?token=2f715a3d38225d81e7260bf90186aee8&lang=en&q=${search}`),
+    getTopHeadlines: (category: string) => apiBase.get(`/top-headlines?token=2f715a3d38225d81e7260bf90186aee8&lang=en&topic=${category}`),
 }
 
 

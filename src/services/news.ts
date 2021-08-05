@@ -35,7 +35,7 @@ class NewsServices {
 
     public async getHeadlineHealth() {
       try {
-        const {articles} = await api.newsApi.getTopHeadlines("health")
+        const {articles} = await api.newsApi.getNewsData("health")
         store.dispatch(setHeadlineHealth(articles))
       } catch (error) {
         console.log(error)

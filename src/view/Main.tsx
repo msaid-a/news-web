@@ -66,12 +66,16 @@ const Main: React.FC = () => {
 
   const getDataSport = async () => {
     setLoadingSport(true);
-    await newsServices.getHeadlineSport();
+    setTimeout(async () => {
+      await newsServices.getHeadlineSport();
+    }, 1000)
     setLoadingSport(false);
   }
   const getDataHealth = async () => {
     setLoadingHealth(true);
-    await newsServices.getHeadlineHealth();
+    setTimeout(async () => {
+      await newsServices.getHeadlineHealth();
+    }, 1000)
     setLoadingHealth(false);
   }
 
