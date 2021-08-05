@@ -111,9 +111,10 @@ const Main: React.FC = () => {
       <Carousel
         responsive={responsive}
         infinite={true}
-        autoPlaySpeed={400}
+        autoPlaySpeed={6000}
         keyBoardControl={true}
-        transitionDuration={400}
+        transitionDuration={1000}
+        autoPlay={true}
         arrows={false}
         showDots
       >
